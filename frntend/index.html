@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Personal Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f6f3ef;
+      color: #333;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #d5e1db;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    header h2 {
+      color: #6b4e6c;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #b6a137;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(120deg, #60a8d4, #d254ca);
+      color: white;
+      padding: 60px 10%;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      animation: slideIn 1.2s ease;
+    }
+
+    .hero-text p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    /* ===== HERO AVATAR ===== */
+    .hero-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #000;        /* Black outline */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 70px 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #1e40af;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .skill-box {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-8px);
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #d5e1db;
+      color: rgb(104, 78, 140);
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+    .hero-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;     /* 👈 KEY FIX */
+      background-color: #fff; /* fills empty space neatly */
+      padding: 8px;           /* gives breathing space */
+      border: 4px solid #000; /* black outline */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h2>Portfolio</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hello, I'm Hasini 👋</h1>
+      <p>Frontend Developer | BTech Student | Software Engineer</p>
+    </div>
+
+    <!-- Resume Photo -->
+    <img src="avathar.jpg" alt="Hasini Photo" class="hero-avatar">
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>
+        Motivated and detail-oriented engineer with a strong foundation in software development and database
+        management. Passionate about problem-solving and adapting to new technologies.
+      </p>
+      <br>
+      <p>• Code. Design. Improve.</p>
+      <p>🎯 Interest: Web Development, Software Development, Data Analytics, Internet of Things</p>
+      <p>📍 Location: Kurnool, Andhra Pradesh</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-box">HTML</div>
+      <div class="skill-box">CSS</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">Bootstrap</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">Java</div>
+      <div class="skill-box">MySQL</div>
+      <div class="skill-box">Tableau</div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="IOT.jpg" onclick="openLightbox(this)">
+      <img src="Frntend.jpg" onclick="openLightbox(this)">
+      <img src="earth.jpeg" onclick="openLightbox(this)">
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Email:
+        <a href="mailto:kuruvahasini@gmail.com" target="_blank">
+          kuruvahasini@gmail.com
+        </a>
+      </p>
+
+      <p>LinkedIn:
+        <a href="https://www.linkedin.com/in/hasini-kuruva" target="_blank">
+          hasini-kuruva
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Hasini | Personal Portfolio
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
